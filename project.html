@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix India – Watch TV Shows Online, Watch Movies Online</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Martel Sans", sans-serif;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .main {
+            background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/cb17c41d-6a67-4472-8b91-cca977e65276/web/IN-en-20250505-TRIFECTA-perspective_03ae1a85-5dcf-4d20-a8a6-1e61f7ef73cb_large.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: max(1800px, 100vw);
+            height: 85vh;
+            position: relative;
+        }
+
+        .main .box {
+            background-color: black;
+            height: 85vh;
+            width: 100%;
+            opacity: 0.6;
+            position: absolute;
+            top: 0;
+
+        }
+
+        nav {
+            display: flex;
+            width: 80vw;
+            margin: auto;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            height: 85px;
+        }
+
+        .netflix_logo {
+            fill: red;
+            color: red;
+            position: absolute;
+            height: 30px;
+            bottom: 30px;
+        }
+
+        nav span img {
+            height: 50px
+        }
+
+        .English_btn {
+            /* position: relative;
+    z-index: 8; */
+            height: 35px;
+            padding: 5px 20px;
+            font-weight: 400;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: unset;
+            /* opacity: 0.5; */
+            color: white;
+            border: 1px solid rgb(120, 120, 120);
+        }
+
+        .SignIn_btn {
+            background-color: red;
+            color: white;
+            border: unset;
+            padding: 3px 10px;
+            font-size: 16px;
+            font-weight: 400;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+        .nav_btn {
+            display: flex;
+            gap: 15px;
+        }
+
+        .body_text {
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 85px);
+            /* width: 80vw; */
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+            padding: 0px 30px;
+        }
+
+        .body_text span:nth-child(1) {
+            font-size: 56px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .body_text span:nth-child(2) {
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .body_text span:nth-child(3) {
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+            /* line-height: 2.5; */
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .buttons input {
+            background-color: unset;
+            border: 0.5px solid white;
+            padding: 8px 100px 8px 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .buttons span {
+            background-color: red;
+            color: white;
+            padding: 4px 40px;
+            font-size: 20px;
+            font-weight: 300;
+            border-radius: 5px;
+        }
+
+        .separation {
+            height: 7px;
+            background-color: rgb(51, 47, 47);
+        }
+
+        .fir_sec {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 70vw;
+            margin: auto;
+            position: relative;
+            /* flex-wrap: wrap; */
+        }
+
+        .fir_sec_text {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .fir_sec_img {
+            position: relative;
+        }
+
+        .fir_sec_img img {
+            width: 400px;
+            position: relative;
+            z-index: 10;
+            top: 10px;
+            /* padding: 20px 30px; */
+        }
+
+        .fir_sec_img video {
+            width: 400px;
+            position: absolute;
+            top: 50px;
+            right: 0px;
+
+        }
+
+        .fir_sec_text span:nth-child(1) {
+            font-size: 48px;
+            letter-spacing: 1.0;
+            font-weight: 900;
+            margin-bottom: -10px;
+        }
+
+        .fir_sec_text span:nth-child(2) {
+            font-size: 24px;
+            letter-spacing: 1.0;
+        }
+
+        .sec_sec {
+            max-width: 70vw;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sec_sec_text {
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sec_sec_text span:nth-child(1) {
+            font-size: 48px;
+            font-weight: 900;
+            padding: -10px;
+        }
+
+        .sec_sec_text span:nth-child(2) {
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        .sec_sec_img {
+            position: relative;
+        }
+
+        .sec_sec_img img {
+            width: 550px;
+        }
+
+        .thi_sec {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 70vw;
+            margin: auto;
+            position: relative;
+        }
+
+        .thi_sec_text {
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        .thi_sec_img {
+            position: relative;
+        }
+
+        .thi_sec_img img {
+            width: 400px;
+            position: relative;
+            z-index: 10;
+            top: 10px;
+            padding-bottom: 30px;
+        }
+
+        .thi_sec_img video {
+            width: 390px;
+            position: absolute;
+            top: 50px;
+            right: 2px;
+
+        }
+
+        .thi_sec_text span:nth-child(1) {
+            font-size: 48px;
+            letter-spacing: 1.0;
+            font-weight: 900;
+            margin-bottom: -10px;
+        }
+
+        .thi_sec_text span:nth-child(2) {
+            font-size: 24px;
+            letter-spacing: 1.0;
+        }
+
+        .four_sec {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 70vw;
+            margin: auto;
+            position: relative;
+        }
+
+        .four_sec_text {
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        .four_sec_img img {
+            width: 555px;
+            position: relative;
+            z-index: 10;
+            top: 10px;
+            padding-bottom: 30px;
+        }
+
+        .four_sec_img video {
+            width: 540px;
+            position: absolute;
+            top: 50px;
+            right: 2px;
+
+        }
+
+        .four_sec_text span:nth-child(1) {
+            font-size: 48px;
+            letter-spacing: 1.0;
+            font-weight: 900;
+            margin-bottom: -10px;
+        }
+
+        .four_sec_text span:nth-child(2) {
+            font-size: 24px;
+            letter-spacing: 1.0;
+        }
+
+        .five_sec h2 {
+            text-align: center;
+            color: white;
+            font-size: 50px;
+            margin-top: 40px;
+        }
+
+        .five_box {
+            display: flex;
+            background-color: #2d2d2d;
+            color: white;
+            width: 60vw;
+            padding: 25px;
+            justify-content: space-between;
+            margin: 35px auto;
+            cursor: pointer;
+            transition: all 1s ease-in-out;
+        }
+
+        .five_box:hover {
+            color: white;
+            background-color: #414141;
+        }
+
+        footer {
+            width: 60vw;
+            margin: auto;
+            color: white;
+            padding: 60px;
+        }
+
+        footer p {
+            padding: 30px 0px;
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 23px;
+        }
+
+        .col a {
+            color: white;
+            font-size: 14px;
+        }
+
+        @media screen and (max-width:1300px) {
+
+            .fir_sec,
+            .sec_sec,
+            .thi_sec,
+            .four_sec,
+            .five_box {
+                flex-wrap: wrap;
+            }
+
+            .footer {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .fir_sec_img img {
+                width: 300px;
+            }
+
+            .fir_sec_img video {
+                width: 300px;
+            }
+
+            .thi_sec_img img {
+                width: 300px;
+            }
+
+            .thi_sec_img video {
+                width: 290px;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+            }
+
+            .buttons input {
+                padding: 8px 222px 8px 10px;
+            }
+
+            .buttons span {
+                padding: 6px 35px;
+                width: 152px;
+                align-self: center;
+                justify-self: center;
+            }
+        }
+
+        @media screen and (max-width:500px) {
+            .body_text span:nth-child(1) {
+                font-size: 32px;
+            }
+
+            .body_text span:nth-child(2) {
+                font-size: 18px;
+            }
+
+            .body_text span:nth-child(3) {
+                font-size: 14px;
+            }
+
+            .buttons input {
+                padding: 8px 190px 8px 10px;
+            }
+
+            .fir_sec_text span:nth-child(1) {
+                font-size: 32px;
+            }
+
+            .fir_sec_text span:nth-child(2) {
+                font-size: 18px;
+            }
+
+            .sec_sec_text span:nth-child(1) {
+                font-size: 32px;
+            }
+
+            .sec_sec_text span:nth-child(2) {
+                font-size: 18px;
+            }
+
+            .thi_sec_text span:nth-child(1) {
+                font-size: 32px;
+            }
+
+            .thi_sec_text span:nth-child(2) {
+                font-size: 18px;
+            }
+
+            .four_sec_text span:nth-child(1) {
+                font-size: 32px;
+            }
+
+            .four_sec_text span:nth-child(2) {
+                font-size: 18px;
+            }
+
+            .five_sec h2 {
+                font-size: 32px;
+            }
+
+            .footer {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sec_sec_img img {
+                width: 400px;
+            }
+
+            nav span img {
+                height: 35px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <nav>
+            <span>
+                <!-- <img src="assets/images/logo.svg" alt=""> -->
+                <svg viewBox="0 0 111 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="netflix_logo">
+                    <g>
+                        <path
+                            d="M105.06233,14.2806261 L110.999156,30 C109.249227,29.7497422 107.500234,29.4366857 105.718437,29.1554972 L102.374168,20.4686475 L98.9371075,28.4375293 C97.2499766,28.1563408 95.5928391,28.061674 93.9057081,27.8432843 L99.9372012,14.0931671 L94.4680851,-5.68434189e-14 L99.5313525,-5.68434189e-14 L102.593495,7.87421502 L105.874965,-5.68434189e-14 L110.999156,-5.68434189e-14 L105.06233,14.2806261 Z M90.4686475,-5.68434189e-14 L85.8749649,-5.68434189e-14 L85.8749649,27.2499766 C87.3746368,27.3437061 88.9371075,27.4055675 90.4686475,27.5930265 L90.4686475,-5.68434189e-14 Z M81.9055207,26.93692 C77.7186241,26.6557316 73.5307901,26.4064111 69.250164,26.3117443 L69.250164,-5.68434189e-14 L73.9366389,-5.68434189e-14 L73.9366389,21.8745899 C76.6248008,21.9373887 79.3120255,22.1557784 81.9055207,22.2804387 L81.9055207,26.93692 Z M64.2496954,10.6561065 L64.2496954,15.3435186 L57.8442216,15.3435186 L57.8442216,25.9996251 L53.2186709,25.9996251 L53.2186709,-5.68434189e-14 L66.3436123,-5.68434189e-14 L66.3436123,4.68741213 L57.8442216,4.68741213 L57.8442216,10.6561065 L64.2496954,10.6561065 Z M45.3435186,4.68741213 L45.3435186,26.2498828 C43.7810479,26.2498828 42.1876465,26.2498828 40.6561065,26.3117443 L40.6561065,4.68741213 L35.8121661,4.68741213 L35.8121661,-5.68434189e-14 L50.2183897,-5.68434189e-14 L50.2183897,4.68741213 L45.3435186,4.68741213 Z M30.749836,15.5928391 C28.687787,15.5928391 26.2498828,15.5928391 24.4999531,15.6875059 L24.4999531,22.6562939 C27.2499766,22.4678976 30,22.2495079 32.7809542,22.1557784 L32.7809542,26.6557316 L19.812541,27.6876933 L19.812541,-5.68434189e-14 L32.7809542,-5.68434189e-14 L32.7809542,4.68741213 L24.4999531,4.68741213 L24.4999531,10.9991564 C26.3126816,10.9991564 29.0936358,10.9054269 30.749836,10.9054269 L30.749836,15.5928391 Z M4.78114163,12.9684132 L4.78114163,29.3429562 C3.09401069,29.5313525 1.59340144,29.7497422 0,30 L0,-5.68434189e-14 L4.4690224,-5.68434189e-14 L10.562377,17.0315868 L10.562377,-5.68434189e-14 L15.2497891,-5.68434189e-14 L15.2497891,28.061674 C13.5935889,28.3437998 11.906458,28.4375293 10.1246602,28.6868498 L4.78114163,12.9684132 Z">
+                        </path>
+                    </g>
+                </svg>
+            </span>
+            <div class="nav_btn">
+                <button class="English_btn">English</button>
+                <button class="SignIn_btn">Sign In</button>
+            </div>
+        </nav>
+        <div class="box"></div>
+        <div class="body_text">
+            <span>Enjoy big movies, hit series and more from ₹ 149.</span>
+            <span>Join today. Cancel anytime.</span>
+            <span>Ready to watch? Enter your email to create or restart your membership.</span>
+            <div class="buttons">
+                <input type="text" placeholder="Email Address">
+                <span type="submit">Get Started ></span>
+            </div>
+        </div>
+        <div class="separation"></div>
+    </div>
+    <section class="fir_sec">
+        <div class="fir_sec_text">
+            <span>Enjoy on your TV</span>
+            <span>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</span>
+        </div>
+        <div class="fir_sec_img">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="">
+            <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
+                muted autoplay loop></video>
+        </div>
+    </section>
+    <div class="separation"></div>
+    <section class="sec_sec">
+        <div class="sec_sec_img">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="">
+        </div>
+        <div class="sec_sec_text">
+            <span>Download your shows to watch offline</span>
+            <span>Save your favourites easily and always have something to watch.</span>
+        </div>
+    </section>
+    <div class="separation"></div>
+    <section class="thi_sec">
+        <div class="thi_sec_text">
+            <span>Watch everywhere</span>
+            <span>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</span>
+        </div>
+        <div class="thi_sec_img">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="">
+            <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v"
+                muted autoplay loop></video>
+        </div>
+    </section>
+    <div class="separation"></div>
+    <section class="four_sec">
+        <div class="four_sec_img">
+            <img src="https://occ-0-2849-3646.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png?r=54d"
+                alt="">
+        </div>
+        <div class="four_sec_text">
+            <span>Create profiles for kids</span>
+            <span>Send children on adventures with their favourite characters in a space made just for them—free with
+                your membership.</span>
+        </div>
+    </section>
+    <div class="separation"></div>
+    <section class="five_sec">
+        <h2>Frequently Asked Questions</h2>
+        <div class="five_box">What is NetFlix <span>+</span></div>
+        <div class="five_box">How much does Netflix cost? <span>+</span></div>
+        <div class="five_box">What can I watch on Netflix? <span>+</span></div>
+        <div class="five_box">Where can I watch? <span>+</span></div>
+    </section>
+    <div class="separation"></div>
+    <footer>
+        <p>Questions? Call 000-800-919-1694</p>
+        <div class="footer">
+            <div class="col">
+                <a href="/">Investor Relations</a>
+                <a href="/">Jobs</a>
+                <a href="/">Ways to watch</a>
+                <a href="/">Terms of Use</a>
+            </div>
+            <div class="col">
+                <a href="#">Help Center</a>
+                <a href="#">Account</a>
+                <a href="#">Speed Test</a>
+                <a href="#">Legal Notices</a>
+            </div>
+            <div class="col">
+                <a href="#">Media Center</a>
+                <a href="#">Privacy</a>
+                <a href="#">Cookie Preferences</a>
+                <a href="#">Corporate</a>
+            </div>
+            <div class="col">
+                <a href="#">Contact Us</a>
+                <a href="#">Speed Test</a>
+                <a href="#">Legal Notices</a>
+                <a href="#">Only on Netflix</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
